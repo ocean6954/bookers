@@ -1,7 +1,14 @@
 
 <body>
   <p id="notices">Book was successfully created.</p>
-  <p>Title</p>
-  <p></p>
-  
+  <strong>Title: </strong>
+  <p><%= @data.title %></p>
+
+
+  <strong>Body: </strong>
+  <p><%= @data.body %></p>
+
+
+  <span><%= link_to "Edit", "/books/#{@data.id}/edit" %></span>
+  <span><%= link_to "Back", "/books" %></span>
 </body>

@@ -15,9 +15,9 @@
       <td><span><%= book.title %></span></td>
       <td><span><%= book.body %></span></td>
       <td>
-        <a href="#">Show</a>
-        <a href="#">Edit</a>
-        <a href="#">Dekete</a>
+        <span><%= link_to "Show", "/books/#{book.id}" %></span>
+        <span><%= link_to "Edit", "/books/#{book.id}/edit" %></span>
+        <span><%= link_to "Destroy", "/books/#{book.id}" %></span>
       </td>
     </tbody>
 
@@ -29,7 +29,7 @@
 
   <h2>New book</h2>
 
-  <div class="form">
+  <div class="forms">
     <!--<div class="title_form"></div>-->
     <!--<div class="body_form"></div>-->
     <!--<div class="btn"></div>-->
