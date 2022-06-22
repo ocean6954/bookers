@@ -1,12 +1,22 @@
-
 <body>
-  <p id="notices">Book was successfully created.</p>
-  <strong>Title: </strong>
-  <p><%= @data.title %></p>
+  <!--サクセスメッセージ-->
+  <% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+  <% end %>
+
+  <p>
+    <strong>Title: </strong>
+    <%= @data.title %>
+  </p>
 
 
-  <strong>Body: </strong>
-  <p><%= @data.body %></p>
+  <p>
+    <strong>Body: </strong>
+    <%= @data.body %>
+  </p>
+
 
 
   <span><%= link_to "Edit", "/books/#{@data.id}/edit" %></span>

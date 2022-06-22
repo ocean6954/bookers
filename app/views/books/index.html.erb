@@ -1,5 +1,11 @@
 
-<div class="index-body">
+<body>
+
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+<% end %>
 
 <!--ここから下は一覧テーブルだよ-->
   <h1>Books</h1>
@@ -17,7 +23,8 @@
       <td>
         <span><%= link_to "Show", "/books/#{book.id}" %></span>
         <span><%= link_to "Edit", "/books/#{book.id}/edit" %></span>
-        <span><%= link_to "Destroy", "/books/#{book.id}" %></span>
+        <span><%= link_to "Destroy","/books/#{book.id}", method: :delete, "data-confirm" => "Are you sure?" %></span>
+
       </td>
     </tbody>
 
@@ -26,6 +33,7 @@
 </table>
 
 <!-- ここから下は投稿フォームだよ-->
+<!--新規投稿アクションをここに記入-->
 
   <h2>New book</h2>
 
@@ -47,4 +55,4 @@
       <input type="submit" value="Create Book" class="btn">
     <% end %>
   </div>
-</div>
+</body>

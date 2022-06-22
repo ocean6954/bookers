@@ -7,15 +7,9 @@ class BooksController < ApplicationController
 
   def create
     book = Book.new(list_params)
-    respond_to do |format|
-      if book.save
-        format.html { redirect_to book, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: book }
-      else
-        format.html { render :index }
-        format.json { render json: book.errors, status: :unprocessable_entity }
-      end
-    end
+    book.save
+    flash[:notice] = "Book was successfully created."
+    redirect_to book_path(book.id)
   end
 
 
@@ -28,6 +22,20 @@ class BooksController < ApplicationController
   end
 
   def success
+  end
+
+  def update
+    book= Book.find(params[:id])
+    book.update(list_params)
+    flash[:notice] = "Book was successfully updated."
+    redirect_to book_path(book.id)
+  end
+  
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    flash[:notice] = "Book was successfully destroyed."
+    redirect_to '/books'
   end
 
   private
