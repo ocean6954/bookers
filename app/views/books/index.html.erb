@@ -1,4 +1,3 @@
-
 <body>
 
 <% if flash[:notice] %>
@@ -9,6 +8,7 @@
 
 <!--ここから下は一覧テーブルだよ-->
   <h1>Books</h1>
+
 
 <table>
    <tr>
@@ -33,20 +33,28 @@
 </table>
 
 <!-- ここから下は投稿フォームだよ-->
-<!--新規投稿アクションをここに記入-->
 
   <h2>New book</h2>
 
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <!--↑ここまでエラー処理-->
+
+<!--新規投稿をここに記入-->
+
   <div class="forms">
-    <!--<div class="title_form"></div>-->
-    <!--<div class="body_form"></div>-->
-    <!--<div class="btn"></div>-->
     <%= form_with model: @book, url: '/books', method: :post do |f| %>
       <div class="form">
         <label>Title</label>
         <%= f.text_field :title %>
       </div>
-
       <div class="form">
         <label>Body</label>
         <%= f.text_area :body %>

@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   get root :to => 'homes#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :books
-  # get 'books/:id' => 'books#success', as: 'success'
+  patch '/books/:id' => 'books#update', as: 'up_book'
 
 end
