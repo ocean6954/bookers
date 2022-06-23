@@ -19,6 +19,7 @@
 
 
 
-  <span><%= link_to "Edit", "/books/#{@data.id}/edit" %></span>
-  <span><%= link_to "Back", "/books" %></span>
+  <span><%= link_to "Edit", "/books/#{@data.id}/edit", class: "link" %></span>
+  <span>|</span>
+  <span><%= link_to "Back", "/books", class: "link" %></span>
 </body>

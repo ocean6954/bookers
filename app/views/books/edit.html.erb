@@ -3,36 +3,66 @@
     <h1>Editing Book</h1>
 
     <% if @book.errors.any? %>
-        <%= @book.errors.count %>件のエラーが発生しました>
-        <ul>
-            <% @book.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-        </ul>
-    <% end %>
-
-    <div class="forms">
-        <%= form_with model: @book, url: up_book_path, method: :patch do |f| %> <!--updateアクションにデータ送る-->
-
-            <div class="form">
-                <label>Title</label>
-                <%= f.text_field :title %>
-            </div>
-
-            <div class="form">
-                <label>Body</label>
-                <%= f.text_area :body %>
-            </div>
-
-            <input type="submit" value="Update Book" class="btn">
-
-          <% end %>
+        <div id="error_explanation">
+            <h3>
+                <%= @book.errors.count %> errors prohibited this book from being saved:
+            </h3>
+            <ul>
+                <% @book.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+            </ul>
         </div>
 
-        <span><%= link_to "Show", "/books/#{@book.id}" %></span>
-        <span><%= link_to "Back", "/books" %></span>
+        <div class="forms">
+            <%= form_with model: @book, url: up_book_path, method: :patch do |f| %> <!--updateアクションにデータ送る-->
+                <div class="form">
+                    <div class="field_with_errors">
+                        <label>Title</label>
+                    </div>
+                    <%= f.text_field :title %>
+                </div>
+                <div class="form">
+                    <div class="field_with_errors">
+                        <label>Body</label>
+                    </div>
+                    <%= f.text_area :body %>
+                </div>
+                <div class="actions">
+                    <input type="submit" value="Update Book" class="btn">
+                </div>
+            <% end %>
+        </div>
 
-    </body>
+
+    <% else %>
+
+
+        <div class="forms">
+            <%= form_with model: @book, url: up_book_path, method: :patch do |f| %> <!--updateアクションにデータ送る-->
+                <div class="form">
+                    <label>Title</label>
+                    <%= f.text_field :title %>
+                </div>
+                <div class="form">
+                    <label>Body</label>
+                    <%= f.text_area :body %>
+                </div>
+                <div class="actions">
+                    <input type="submit" value="Update Book" class="btn">
+                </div>
+            <% end %>
+        </div>
+
+    <% end %>
+
+        <span><%= link_to "Show", "/books/#{@book.id}", class: "link" %></span>
+        <span>|</span>
+        <span><%= link_to "Back", "/books", class: "link" %></span>
+
+
+
+</body>
 
 
 

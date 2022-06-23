@@ -21,21 +21,20 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id]) #データベースから一つだけ取得
   end
 
   def update
     @book = Book.new(list_params)
+    # book = Book.find(params[:id])
     if @book.save
       @book.update(list_params)
       flash[:notice] = "Book was successfully updated."
-      redirect_to book_path(@book.id)
+      redirect_to book_path(book.id)
     else
       @books = Book.all
-      # render :edit
-      # redirect_to edit_book_path
-      # redirect_to "https://www.google.com"
       render :edit
+      # redirect_to "https://www.google.com/"
     end
   end
 
@@ -44,7 +43,7 @@ class BooksController < ApplicationController
     book.destroy
     flash[:notice] = "Book was successfully destroyed."
 
-    # redirect_to '/books'
+    redirect_to '/books'
   end
 
   private
