@@ -180,7 +180,7 @@ div {
     padding: 1px 2px;
 }
 
-.textarea{
+textarea{
     padding: 1px 2px;
 }
 
@@ -222,4 +222,44 @@ ul {
     padding: 2px;
     background-color: red;
     display: table;
+}
+
+input[type="text"] {
+    padding: 1px 2px;
+}
+
+inout {
+writing-mode: horizontal-tb !important;
+}
+
+textarea {
+    font-family: monospace;
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    background-color: field;
+    column-count: initial !important;
+    margin: 0em;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding: 2px;
+}
+
+input[name='commit']{
+    
 }

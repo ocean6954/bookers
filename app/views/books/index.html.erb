@@ -42,7 +42,7 @@
   <% if @book.errors.any? %>
     <div id="error_explanation">
       <h3>
-        <%= @book.errors.count %>errors prohibited this book from being saved:
+        <%= @book.errors.count %>　errors prohibited this book from being saved:
       </h3>
       <ul>
         <% @book.errors.full_messages.each do |message| %>
@@ -65,7 +65,7 @@
           </div>
           <%= f.text_area :body %>
         </div>
-        <input type="submit" value="Create Book" class="btn">
+        <input type="submit"  name="commit" value="Create Book" class="btn">
       <% end %>
     </div>
 
@@ -80,7 +80,7 @@
             <label>Body</label>
             <%= f.text_area :body %>
           </div>
-          <input type="submit" value="Create Book" class="btn">
+          <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book" class="btn">
         <% end %>
     </div>
   <% end %>
